@@ -71,6 +71,18 @@ public class CurrencyConvertor {
         outputTextLabel.setBackground(Color.white);
         frame.add(outputTextLabel);
 
+        // Convert button
+        JButton convertButton = new JButton("Convert");
+        convertButton.setBackground(Color.decode("#5DA1E0"));
+        convertButton.setBounds(155, 407, 300, 50);
+        frame.add(convertButton);
+
+        // Clear Button
+        JButton clearButton = new JButton("Clear");
+        clearButton.setBackground(Color.white);
+        clearButton.setBounds(504, 407, 300, 50);
+        frame.add(clearButton);
+
         frame.setVisible(true);
     }
 
