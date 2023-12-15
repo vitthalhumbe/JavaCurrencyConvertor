@@ -1,20 +1,23 @@
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Insets;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 
 
 public class CurrencyConvertor {
     private Font titleFont = new Font("Arial", Font.BOLD, 32);
     private Font fromToFont = new Font("Arial", Font.ITALIC, 15);
     private Font authorFont = new Font("Arial", Font.PLAIN, 15);
+    private Border blackline = BorderFactory.createLineBorder(Color.black);
     private JFrame frame = new JFrame("Currency Convertor"); 
 
     public CurrencyConvertor() {
         frame.setBounds(300, 200, 962, 569);
         frame.setLayout(null);
-        frame.setBackground(Color.white);
+        frame.getContentPane().setBackground(Color.decode("#ffffff"));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         // Title label 
@@ -44,14 +47,29 @@ public class CurrencyConvertor {
         // from list
         String[] CurrencyStrings = {"Indian Rupees", "American Dollar", "Japanese Yen", "European Euro"};
         JComboBox<String> fromCurrency = new JComboBox<String>(CurrencyStrings);
+        fromCurrency.setBackground(Color.white);
         fromCurrency.setBounds(105, 242, 317, 35);
         frame.add(fromCurrency);
 
         // To list
         JComboBox<String> toCurrency = new JComboBox<String>(CurrencyStrings);
         toCurrency.setSelectedItem("American Dollar");
+        toCurrency.setBackground(Color.white);
         toCurrency.setBounds(552, 242, 317, 35);
         frame.add(toCurrency);
+
+        // from Text input field
+        JTextField inputTextField = new JTextField();
+        inputTextField.setBounds(105, 305, 317, 39);
+        inputTextField.setMargin(new Insets(0, 10, 0, 0));
+        frame.add(inputTextField);
+
+        // to text output label 
+        JLabel outputTextLabel = new JLabel();
+        outputTextLabel.setBorder(blackline);
+        outputTextLabel.setBounds(552, 305, 317, 39);
+        outputTextLabel.setBackground(Color.white);
+        frame.add(outputTextLabel);
 
         frame.setVisible(true);
     }
